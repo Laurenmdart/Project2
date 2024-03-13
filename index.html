@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQ Sandbox</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://widget.co2nsensus.com/css/app.css" 
+    crossorigin="anonymous"/>
+   
+</head>
+<body>
+    <div id="home-screen">
+        
+    </div>
+
+    <section class="container">
+    <h1 id="welcome-text">THE BIG 3</h1>
+    <h3 id="change-bg-color"></h3>
+    </section>
+
+ <section class="container">
+    <img id="Fossils" class="main-img1" src="media/images/FossilFuels.png" alt="Fossil Fuels">
+    <img id="Industry" class="main-img2" src="media/images/Factory.png" alt="Industry Processes">
+    <img id="Transportation" class="main-img3" src="media/images/Transportation.png" alt="Transportation">
+ </section>
+
+    <button id="toggle-text"><h2><a href="https://cotap.org/reduce-carbon-footprint/"></a>What Can I Do?</h2></button>
+   
+    <h1><a href="https://cotap.org/reduce-carbon-footprint/">What Can I Do?</h1>
+
+    <div id="set-height"> 
+        <video id="v0" tabindex="0" autobuffer preload>
+            <source type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' src="media/video/earth copy.mp4" >
+        </video>
+    </div>
+
+    <div class="video-container" id="set-height"> 
+        <video id="v02" tabindex="0" autobuffer preload>
+            <source type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' src="media/video/earth copy.mp4" >
+        </video>
+    </div>
+
+    <div class="video-container" id="set-height"> 
+        <video id="FossilFuelsVideo" tabindex="0" controls autobuffer preload>
+            <source type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' src="media/video/fossil fuels copy.mp4" >
+        </video>
+    </div>
+
+    <div class="video-container" id="set-height"> 
+        <video id="TransportationVideo" tabindex="0" controls autobuffer preload>
+            <source type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' src="media/video/Transport carbon footprints copy.mp4">
+        </video>
+    </div>
+
+    <div class="video-container" id="set-height"> 
+        <video id="IndustryProcessesVideo" tabindex="0" controls autobuffer preload>
+            <source type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' src="media/video/Corporate Carbon Footprint copy.mp4" >
+        </video>
+    </div>
+
+    <script>
+        var playbackConst = 500; 
+        var setHeight = document.getElementById("set-height");
+        var vid = document.getElementById('v0');
+
+      
+        vid.addEventListener('loadedmetadata', function() {
+            setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
+        });
+
+        function scrollPlay(){  
+            var frameNumber = window.pageYOffset / playbackConst;
+            vid.currentTime = frameNumber;
+            window.requestAnimationFrame(scrollPlay);
+        }
+        
+        window.requestAnimationFrame(scrollPlay);
+    </script>
+  
+  <iframe width="710" height="1300" frameborder="0" 
+  marginwidth="0" marginheight="0" scrolling="no" 
+  src="https://calculator.carbonfootprint.com/calculator.aspx"></iframe>
+  
+</body>
+</html>
